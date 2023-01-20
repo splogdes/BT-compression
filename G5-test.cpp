@@ -160,6 +160,8 @@ std::string one_above(std::string r){
     }
     return r;
 }
+
+//creates random inputs 
 std::string random(std::string r){
     int k=0;
     while(k<r.size()){
@@ -173,6 +175,7 @@ std::string random(std::string r){
     return r;
 }
 
+//counts up through possible inputs 
 std::vector<std::string> counter(int const size){
     std::vector<std::string> allon = {""};
     for(int i = 0;i<size;i++){

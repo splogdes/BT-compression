@@ -16,7 +16,7 @@ BNode* bt_node(std::string e,BNode* l,BNode* r){
     return tmp;
 }
 
-
+// once a zero is hit it builds the branch off the tree in that location
 BNode* hit_0(std::string const direction,std::vector<int> const ord,int counter){
     std::string name;
     char x01 = direction[ord[counter]];
@@ -30,6 +30,7 @@ BNode* hit_0(std::string const direction,std::vector<int> const ord,int counter)
     return bt_node(name,hit_0(direction,ord,counter+1),bt_node("0",NULL,NULL));
 }
 
+// moves through the existing tree until a zero is hit
 BNode* Build_tree(std::string const direction,std::vector<int> const ord,BNode* t,int counter){
     char x01 = direction[ord[counter]];
     if(t -> val != "0"){
@@ -45,6 +46,7 @@ BNode* Build_tree(std::string const direction,std::vector<int> const ord,BNode* 
     return hit_0(direction,ord,counter);
 }
 
+// works out the optimal order of the varibles in the tree
 std::vector<int> order(std::vector<std::string> in){
     std::vector <int> rank;
     std::vector<int> out;
@@ -72,6 +74,7 @@ std::vector<int> order(std::vector<std::string> in){
     return out;
 }
 
+//this compresses the inputs with "don't cares as in the report"
 std::vector<std::string> shorthand(std::vector<std::string> r){
     std::vector<std::string> tmp;
         for(int y=r[0].size()-1; y>=0;y--){
@@ -108,6 +111,7 @@ std::vector<std::string> shorthand(std::vector<std::string> r){
     return r;
 }
 
+//builds the compressed tree
 BNode* build_bt(const std::vector<std::string>& fvalues){
     std::vector<int> first;
     BNode* t;

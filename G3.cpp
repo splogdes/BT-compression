@@ -56,7 +56,7 @@ std::vector<std::string> in_order(std::vector<std::string> r,std::vector<int> or
     }
     return out;
 }
-//
+// predicts the number of nodes if the tree is built
 int predicted_number_of_nodes(std::vector<std::string> r){
     std::vector<std::string> same_branch, different_branch;
     int y=1;

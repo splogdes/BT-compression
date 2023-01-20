@@ -7,7 +7,8 @@ struct BNode{
     BNode* left;
     BNode* right;
 };
- 
+
+//structure to store where ones and zeros are located 
 struct oneandzero{
     std::vector<std::string> one;
     std::vector<std::string> zero;
@@ -21,6 +22,7 @@ BNode* bt_node(std::string e,BNode* l,BNode* r){
     return tmp;
 }
 
+//reduces the inputs
 std::vector<std::string> shorthand(std::vector<std::string> r){
     std::vector<std::string> tmp;
     for(int y=r[0].size()-1; y>=0;y--){
@@ -58,6 +60,7 @@ std::vector<std::string> shorthand(std::vector<std::string> r){
     }
     return r;
 }
+
 
 //returns -1 if there are only x's or s's left and -2 if nothing is left
 int order(std::vector<std::string> in){
@@ -97,6 +100,7 @@ int order(std::vector<std::string> in){
     return out;
 }
 
+//builds the vector that has locations of ones and zeros
 oneandzero Left_or_right(std::vector<std::string> r,int ord){
     oneandzero out;
     std::string tmp;
@@ -115,6 +119,7 @@ oneandzero Left_or_right(std::vector<std::string> r,int ord){
     return out;
 }
 
+//builds the tree reecursively on each branch so the order can vary on each branch
 BNode* Build_tree(std::vector<std::string> direction,int ord){
     std::string name;
     if(ord==-1){
